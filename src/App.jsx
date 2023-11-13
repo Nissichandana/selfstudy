@@ -17,8 +17,16 @@ function App() {
     price: 0,
     description: "Describe this item",
   });
+  
+  
+  //const isHiring = true;
+  const [isHiring, setIsHiring] = useState(true);
 
-  const isHiring = false;
+  const toggleHiring = () => {
+    console.log("1...");
+    setIsHiring(!isHiring);
+  };
+  
   // const !isHiring = true;
 
   // handleChange function
@@ -46,8 +54,8 @@ function App() {
   // return
   return (
     <div>
-      <h1> Big Time Shopping </h1>
-      {!isHiring ? <h2>Yes, we are hiring </h2>: <h2>Sorry, try again tomorrow</h2>}
+      <h1 onClick={toggleHiring}> Big Time Shopping </h1>
+      {!isHiring ? (<h2>Yes, we are hiring </h2>) : (<h2>Sorry, try again tomorrow</h2>) }
 
       <form onSubmit={handleSubmit}>
         <input type="text" value={form.itemName} onChange = {handleChange} name="itemName" placeholder="Type Item name here" />
